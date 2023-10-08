@@ -1,7 +1,7 @@
-function getComputerChoice() {
-    randomNumber = Math.floor(Math.random() * 3) + 1;
+function getComputerChoice () {
+    let randomNumber = Math.floor(Math.random() * 3) + 1;
 
-    choice = "nothing";
+    let choice = "nothing";
     
     switch (randomNumber) {
         case 1:
@@ -18,4 +18,29 @@ function getComputerChoice() {
     }
 
     return choice;
+}
+
+function playRound(playerSelection, computerSelection) {
+    playerSelection = playerSelection.toLowerCase();
+    computerSelection = computerSelection.toLowerCase();
+
+    let outcome = "nothing";
+
+    if (playerSelection === computerSelection) {
+        outcome = "Tie";
+    } else if (playerSelection === "rock" && computerSelection === "paper") {
+        outcome = "Computer wins round";
+    } else if (playerSelection === "rock" && computerSelection === "scissors") {
+        outcome = "Player wins round";
+    } else if (playerSelection === "paper" && computerSelection === "rock") {
+        outcome = "Player wins round";
+    } else if (playerSelection === "paper" && computerSelection === "scissors") {
+        outcome = "Computer wins round";
+    } else if (playerSelection === "scissors" && computerSelection === "rock") {
+        outcome = "Computer wins round";
+    } else if (playerSelection === "scissors" && computerSelection === "paper") {
+        outcome = "Player wins round";
+    }
+
+    return outcome;
 }
