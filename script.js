@@ -48,46 +48,52 @@ function game () {
     let playerScore = 0;
     let computerScore = 0;
 
-    let playerSelection;
-    let option = document.querySelector(`#options`);
+    //while (playerScore < 5 && computerScore < 5) {
+        let option = document.querySelector(`#options`);
 
-    option.addEventListener(`click`, (event) => {
-        let playerSelection = event.target;
+        option.addEventListener(`click`, (event) => {
+            let playerSelection = event.target;
 
-        // only want id of button being clicked
-        playerSelection = playerSelection.id;
-    })
+            // only want id of button being clicked
+            playerSelection = playerSelection.id;
 
-    let computerSelection = getComputerChoice();
+            //prevent clicking on div triggering onclick
+            if (playerSelection !== `options`) {
+                console.log(playerSelection);
 
-    const outcome = playRound(playerSelection, computerSelection);
-    console.log(outcome);
+                const computerSelection = getComputerChoice();
 
-    const result = outcome.slice(0, 8);
-    
-    switch (result) {
-        case `You Win!`:
-            playerScore++;
-            break;
-        case `You Lose`:
-            computerScore++;
-            break;
-        case `You Tie!`:
-            break;
-        default:
-            break;
-    }
+                const outcome = playRound(playerSelection, computerSelection);
+                console.log(outcome);
 
-    let victor = `no one`;
-    if (playerScore > computerScore) {
-        victor = `Player wins game ${playerScore} to ${computerScore}!`;
-    } else if (playerScore < computerScore) {
-        victor = `Computer wins game ${computerScore} to ${playerScore}!`
-    } else {
-        victor = `Tie with ${playerScore}!`
-    }
+                const result = outcome.slice(0, 8);
+                
+                switch (result) {
+                    case `You Win!`:
+                        playerScore++;
+                        break;
+                    case `You Lose`:
+                        computerScore++;
+                        break;
+                    case `You Tie!`:
+                        break;
+                    default:
+                        break;
+                } 
+            }
+        })
+    //}
 
-    console.log(victor);
+    // let victor = `no one`;
+    // if (playerScore > computerScore) {
+    //     victor = `Player wins game ${playerScore} to ${computerScore}!`;
+    // } else if (playerScore < computerScore) {
+    //     victor = `Computer wins game ${computerScore} to ${playerScore}!`
+    // } else {
+    //     victor = `Tie with ${playerScore}!`
+    // }
+
+    // console.log(victor);
 }
 
 game();
