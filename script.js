@@ -24,19 +24,19 @@ function playRound(playerSelection, computerSelection) {
     let outcome = `nothing`;
 
     if (playerSelection === computerSelection) {
-        outcome = `You Tie! (${playerSelection})`;
+        outcome = `You Tie! (${playerSelection})!`;
     } else if (playerSelection === `rock` && computerSelection === `paper`) {
-        outcome = `You Lose! Paper beats Rock`;
+        outcome = `You Lose! Paper beats Rock!`;
     } else if (playerSelection === `rock` && computerSelection === `scissors`) {
-        outcome = `You Win! Rock beats Scissors`;
+        outcome = `You Win! Rock beats Scissors!`;
     } else if (playerSelection === `paper` && computerSelection === `rock`) {
-        outcome = `You Win! Paper beats Rock`;
+        outcome = `You Win! Paper beats Rock!`;
     } else if (playerSelection === `paper` && computerSelection === `scissors`) {
-        outcome = `You Lose! Scissors beats Paper`;
+        outcome = `You Lose! Scissors beats Paper!`;
     } else if (playerSelection === `scissors` && computerSelection === `rock`) {
-        outcome = `You Lose! Rock beats Scissors`;
+        outcome = `You Lose! Rock beats Scissors!`;
     } else if (playerSelection === `scissors` && computerSelection === `paper`) {
-        outcome = `You Win! Scissors beats Paper`;
+        outcome = `You Win! Scissors beats Paper!`;
     } else {
         outcome = `nothing`
     }
@@ -64,11 +64,12 @@ function game () {
                 const outcome = playRound(playerSelection, computerSelection);
 
                 //replace with dom edit div id results
-                console.log(outcome);
+                let result = document.querySelector(`#result`);
+                result.textContent = outcome;
 
-                const result = outcome.slice(0, 8);
+                const outcomeInfo = outcome.slice(0, 8);
                 
-                switch (result) {
+                switch (outcomeInfo) {
                     case `You Win!`:
                         playerScore++;
                         break;
