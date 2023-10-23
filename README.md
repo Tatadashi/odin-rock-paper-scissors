@@ -1,2 +1,2 @@
 # odin-rock-paper-scissors
-This program simulates a Rock, Paper, Scissors game with the computer. It will determine a winner for a round based on user input and the computer's random choice. The game will go on for five rounds and the victor will be the one with the highest score.
+This website simulates a Rock, Paper, Scissors game with the computer. It will determine a winner for a round based on user input via buttons and the computer's random choice. The game will go on until 5 score/wins and the victor will be the one with 5 score/wins.
