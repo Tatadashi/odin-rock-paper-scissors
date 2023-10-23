@@ -5,13 +5,13 @@ function getComputerChoice () {
     
     switch (randomNumber) {
         case 1:
-            choice = `Rock`;
+            choice = `rock`;
             break;
         case 2:
-            choice = `Paper`;
+            choice = `paper`;
             break;
         case 3:
-            choice = `Scissors`;
+            choice = `scissors`;
             break;
         default:
             break;
@@ -21,11 +21,6 @@ function getComputerChoice () {
 }
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection !== null) {
-        playerSelection = playerSelection.toLowerCase();
-    }
-    computerSelection = computerSelection.toLowerCase();
-
     let outcome = `nothing`;
 
     if (playerSelection === computerSelection) {
@@ -53,14 +48,16 @@ function game () {
     let playerScore = 0;
     let computerScore = 0;
 
-    
-    let playerSelection = document.querySelector(`#choice`);
+    let playerSelection;
+    let option = document.querySelector(`#options`);
 
-    playerSelection.addEventListener(`click`, (event) => {
-        alert(`dd`);
+    option.addEventListener(`click`, (event) => {
+        let playerSelection = event.target;
+
+        // only want id of button being clicked
+        playerSelection = playerSelection.id;
     })
 
-    //violation solved using observers
     let computerSelection = getComputerChoice();
 
     const outcome = playRound(playerSelection, computerSelection);
