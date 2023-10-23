@@ -24,7 +24,7 @@ function playRound(playerSelection, computerSelection) {
     let outcome = `nothing`;
 
     if (playerSelection === computerSelection) {
-        outcome = `You Tie!`;
+        outcome = `You Tie! (${playerSelection})`;
     } else if (playerSelection === `rock` && computerSelection === `paper`) {
         outcome = `You Lose! Paper beats Rock`;
     } else if (playerSelection === `rock` && computerSelection === `scissors`) {
@@ -59,11 +59,11 @@ function game () {
 
             //prevent clicking on div triggering onclick
             if (playerSelection !== `options`) {
-                console.log(playerSelection);
-
                 const computerSelection = getComputerChoice();
 
                 const outcome = playRound(playerSelection, computerSelection);
+
+                //replace with dom edit div id results
                 console.log(outcome);
 
                 const result = outcome.slice(0, 8);
