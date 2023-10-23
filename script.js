@@ -51,10 +51,23 @@ function game () {
     let scoreline = document.querySelector(`#scoreline`);
     scoreline.textContent = `Player Score: ${playerScore} || Computer Score: ${computerScore}`;
 
-    //while (playerScore < 5 && computerScore < 5) {
-        let option = document.querySelector(`#options`);
+    let option = document.querySelector(`#options`);
 
-        option.addEventListener(`click`, (event) => {
+    option.addEventListener(`click`, (event) => {
+        if (playerScore === 5 || computerScore === 5) {
+            option.removeEventListener(`click`, (event));
+            let victor = `no one`;
+            if (playerScore > computerScore) {
+                victor = `Player wins game ${playerScore} to ${computerScore}!`;
+            } else if (playerScore < computerScore) {
+                victor = `Computer wins game ${computerScore} to ${playerScore}!`
+            } else {
+                victor = `Tie with ${playerScore}!`
+            }
+        
+            let gameVictor = document.querySelector(`#gameVictor`);
+            gameVictor.textContent = victor;
+        } else {
             let playerSelection = event.target;
 
             // only want id of button being clicked
@@ -78,27 +91,14 @@ function game () {
                     case `You Lose`:
                         computerScore++;
                         break;
-                    case `You Tie!`:
-                        break;
                     default:
                         break;
                 }
 
                 scoreline.textContent = `Player Score: ${playerScore} || Computer Score: ${computerScore}`;
             }
-        })
-    //}
-
-    // let victor = `no one`;
-    // if (playerScore > computerScore) {
-    //     victor = `Player wins game ${playerScore} to ${computerScore}!`;
-    // } else if (playerScore < computerScore) {
-    //     victor = `Computer wins game ${computerScore} to ${playerScore}!`
-    // } else {
-    //     victor = `Tie with ${playerScore}!`
-    // }
-
-    // console.log(victor);
+        }
+    })
 }
 
 game();
