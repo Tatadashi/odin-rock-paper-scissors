@@ -48,6 +48,9 @@ function game () {
     let playerScore = 0;
     let computerScore = 0;
 
+    let scoreline = document.querySelector(`#scoreline`);
+    scoreline.textContent = `Player Score: ${playerScore} || Computer Score: ${computerScore}`;
+
     //while (playerScore < 5 && computerScore < 5) {
         let option = document.querySelector(`#options`);
 
@@ -63,7 +66,6 @@ function game () {
 
                 const outcome = playRound(playerSelection, computerSelection);
 
-                //replace with dom edit div id results
                 let result = document.querySelector(`#result`);
                 result.textContent = outcome;
 
@@ -80,7 +82,9 @@ function game () {
                         break;
                     default:
                         break;
-                } 
+                }
+
+                scoreline.textContent = `Player Score: ${playerScore} || Computer Score: ${computerScore}`;
             }
         })
     //}
